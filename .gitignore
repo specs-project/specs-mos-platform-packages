@@ -1,0 +1,8 @@
+
+.*
+!.gitignore
+!/.repositories
+!/scripts/**
+
+*#
+*~
