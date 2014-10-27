@@ -39,6 +39,7 @@
 			"target" : "@{package:root}",
 			"folders" : [
 				"/",
+				"/cmd",
 				"/env",
 				"/env/paths"
 			]
@@ -48,6 +49,20 @@
 			"target" : "@{package:root}",
 			"resource" : "mosaic-node-boot.cpio.gz",
 			"format" : "cpio+gzip"
+		},
+		{
+			"generator" : "renames",
+			"target" : "@{package:root}/bin",
+			"renames" : {
+				"@{package:name}--run-bootstrap" : "mosaic-node-boot--run-boot"
+			}
+		},
+		{
+			"generator" : "symlinks",
+			"target" : "@{package:root}/cmd",
+			"links" : {
+				"bootstrap" : "../bin/@{package:name}--run-bootstrap"
+			}
 		},
 		{
 			"generator" : "symlinks",
